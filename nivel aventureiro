@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+#define TAM 10
+
+int main() {
+    int tabuleiro[TAM][TAM] = {0};
+
+    // Navio 1 - Horizontal (tamanho 4)
+    int linha_h = 2;
+    int col_h_ini = 1;
+    for (int i = 0; i < 4; i++) {
+        tabuleiro[linha_h][col_h_ini + i] = 3;
+    }
+
+    // Navio 2 - Vertical (tamanho 3)
+    int col_v = 6;
+    int lin_v_ini = 5;
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[lin_v_ini + i][col_v] = 3;
+    }
+
+    // Navio 3 - Diagonal principal (tamanho 3)
+    int lin_d1 = 0, col_d1 = 0;
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[lin_d1 + i][col_d1 + i] = 3;
+    }
+
+    // Navio 4 - Diagonal secundária (tamanho 4)
+    int lin_d2 = 0, col_d2 = 9;
+    for (int i = 0; i < 4; i++) {
+        tabuleiro[lin_d2 + i][col_d2 - i] = 3;
+    }
+
+    // Impressão do tabuleiro
+    printf("Tabuleiro 10x10 (0 = vazio, 3 = navio):\n\n");
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
